@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # dependencies that are needed to run puppet-lint
-  spec.add_dependency 'puppet', ['3.0']
+  spec.add_dependency 'puppet', [ '~> 3.8']
   spec.add_dependency 'puppetlabs_spec_helper'
   spec.add_dependency 'metadata-json-lint'
   spec.add_dependency 'puppet-lint-absolute_classname-check'
