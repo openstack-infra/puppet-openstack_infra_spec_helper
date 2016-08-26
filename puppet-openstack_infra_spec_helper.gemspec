@@ -18,8 +18,7 @@ Gem::Specification.new do |spec|
 
   # dependencies that are needed to run puppet-lint
   spec.add_dependency 'puppet', [ '~> 3.8']
-  #TODO(nibz, ashultz) 1.2.0 requires ruby 2.2, see change: 359385
-  spec.add_dependency 'puppetlabs_spec_helper', [ '1.1.1']
+  spec.add_dependency 'puppetlabs_spec_helper'
   spec.add_dependency 'metadata-json-lint'
   spec.add_dependency 'puppet-lint-absolute_classname-check'
   spec.add_dependency 'puppet-lint-absolute_template_path'
