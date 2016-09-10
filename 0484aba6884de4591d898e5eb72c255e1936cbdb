@@ -1,0 +1,10 @@
+Code-Review+1: Alex Schultz <aschultz@redhat.com>
+Code-Review+1: Anita Kuno <anteaya@anteaya.info>
+Code-Review+2: Jeremy Stanley <fungi@yuggoth.org>
+Workflow+1: Jeremy Stanley <fungi@yuggoth.org>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Sat, 10 Sep 2016 13:28:24 +0000
+Reviewed-on: https://review.openstack.org/368254
+Project: openstack-infra/puppet-openstack_infra_spec_helper
+Branch: refs/heads/master
