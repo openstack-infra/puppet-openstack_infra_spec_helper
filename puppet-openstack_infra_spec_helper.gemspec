@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'puppet-lint-absolute_template_path'
   spec.add_dependency 'puppet-lint-trailing_newline-check'
 
-  spec.add_dependency 'puppet-lint-unquoted_string-check'
+  #spec.add_dependency 'puppet-lint-unquoted_string-check'
   spec.add_dependency 'puppet-lint-leading_zero-check'
   spec.add_dependency 'puppet-lint-variable_contains_upcase'
   spec.add_dependency 'puppet-lint-spaceship_operator_without_tag-check'
