@@ -39,6 +39,11 @@ Gem::Specification.new do |spec|
   # latest specinfra broke us, we pin it until we figure what's wrong.
   spec.add_dependency 'specinfra', ['2.59.0']
 
+  # Beaker 3.0.0 fails to run in Puppet Openstack CI
+  # LoadError: cannot load such file -- serverspec
+  # While we're investigating it, let's pin Beaker to 2.x releases.
+  spec.add_dependency 'beaker', ['< 3.0.0']
+
   # dependencies that are needed to run beaker-rspec
   spec.add_dependency 'beaker-rspec'
   spec.add_dependency 'beaker-puppet_install_helper'
