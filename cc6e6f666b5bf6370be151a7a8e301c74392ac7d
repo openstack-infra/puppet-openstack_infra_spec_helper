@@ -1,0 +1,10 @@
+Code-Review+2: Ricardo Carrillo Cruz <ricardo.carrillo.cruz@gmail.com>
+Code-Review+1: Anita Kuno <anteaya@anteaya.info>
+Code-Review+2: Jeremy Stanley <fungi@yuggoth.org>
+Workflow+1: Jeremy Stanley <fungi@yuggoth.org>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 28 Sep 2016 14:57:53 +0000
+Reviewed-on: https://review.openstack.org/378670
+Project: openstack-infra/puppet-openstack_infra_spec_helper
+Branch: refs/heads/master
