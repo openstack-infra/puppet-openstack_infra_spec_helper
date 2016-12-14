@@ -1,0 +1,8 @@
+Code-Review+2: James E. Blair <corvus@inaugust.com>
+Workflow+1: James E. Blair <corvus@inaugust.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 14 Dec 2016 01:02:23 +0000
+Reviewed-on: https://review.openstack.org/410478
+Project: openstack-infra/puppet-openstack_infra_spec_helper
+Branch: refs/heads/master
