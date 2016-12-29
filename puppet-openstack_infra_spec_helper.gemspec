@@ -40,6 +40,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'specinfra', ['2.59.0']
   # fast_gettext 1.2.0+ requires ruby 2.1.0 which is not available on centos7
   spec.add_dependency 'fast_gettext', ['< 1.2.0']
+  # nokogiri 1.7.0+ requires ruby 2.1.0 which is not available on centos7
+  spec.add_dependency 'nokogiri', ['< 1.7.0']
 
   # Beaker 3.0.0 fails to run in Puppet Openstack CI
   # LoadError: cannot load such file -- serverspec
