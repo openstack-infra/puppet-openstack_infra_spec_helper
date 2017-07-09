@@ -3,12 +3,11 @@ require 'beaker-rspec'
 SYSTEM_CONFIG='openstack-infra/system-config'
 
 def install_infra_puppet(host)
-  # puppet 3 isn't available from apt.puppetlabs.com so install it from the Xenial repos
-  on host, "which apt-get && apt-get install puppet -y", { :acceptable_exit_codes => [0,1] }
-  # otherwise use the beaker helpers to install the yum.puppetlabs.com repo and puppet
-  r = on host, "which yum",  { :acceptable_exit_codes => [0,1] }
-  if r.exit_code == 0
-    install_puppet
+  install_system_config(host)
+  on host, "bash -x #{SYSTEM_CONFIG}/install_puppet.sh", :environment => ENV.to_hash
+  if ENV['PUPPET_VERSION'] == '4'
+    host.ssh_permit_user_environment()
+    host.add_env_var('PATH', '/opt/puppetlabs/bin:$PATH')
   end
 end
 
@@ -34,15 +33,22 @@ def install_system_config(host)
 end
 
 def install_infra_modules(host, proj_root)
-  install_system_config(host)
   # Clean out any module cruft
-  shell('rm -fr /etc/puppet/modules/*')
+  if ENV['PUPPET_VERSION'] == 4
+    on host, 'rm -fr /etc/puppetlabs/code/modules/*'
+  else
+    on host, 'rm -fr /etc/puppet/modules/*'
+  end
 
   # Install module and dependencies
   modname = JSON.parse(open('metadata.json').read)['name'].split('-')[1]
   module_install_cmd = "bash #{SYSTEM_CONFIG}/tools/install_modules_acceptance.sh"
   on host, module_install_cmd, :environment => ENV.to_hash
-  on host, "rm -fr /etc/puppet/modules/#{modname}"
+  if ENV['PUPPET_VERSION'] == 4
+    on host, "rm -fr /etc/puppetlabs/code/modules/#{modname}"
+  else
+    on host, "rm -fr /etc/puppet/modules/#{modname}"
+  end
 
   # Install the module being tested
   puppet_module_install(:source => proj_root, :module_name => modname)
