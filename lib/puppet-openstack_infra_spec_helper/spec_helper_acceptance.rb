@@ -3,13 +3,8 @@ require 'beaker-rspec'
 SYSTEM_CONFIG='openstack-infra/system-config'
 
 def install_infra_puppet(host)
-  # puppet 3 isn't available from apt.puppetlabs.com so install it from the Xenial repos
-  on host, "which apt-get && apt-get install puppet -y", { :acceptable_exit_codes => [0,1] }
-  # otherwise use the beaker helpers to install the yum.puppetlabs.com repo and puppet
-  r = on host, "which yum",  { :acceptable_exit_codes => [0,1] }
-  if r.exit_code == 0
-    install_puppet
-  end
+  install_system_config(host)
+  on host, "bash -x #{SYSTEM_CONFIG}/install_puppet.sh", :environment => ENV.to_hash
 end
 
 def setup_host(host)
@@ -34,7 +29,6 @@ def install_system_config(host)
 end
 
 def install_infra_modules(host, proj_root)
-  install_system_config(host)
   # Clean out any module cruft
   shell('rm -fr /etc/puppet/modules/*')
 
