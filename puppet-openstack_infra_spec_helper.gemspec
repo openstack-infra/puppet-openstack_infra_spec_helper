@@ -19,7 +19,8 @@ Gem::Specification.new do |spec|
   # dependencies that are needed to run puppet-lint
   spec.add_dependency 'puppet', [ '~> 3.8']
   spec.add_dependency 'puppetlabs_spec_helper'
-  spec.add_dependency 'metadata-json-lint'
+  # metadata-job-lint 2.0 requires Ruby version ~> 2.0
+  spec.add_dependency 'metadata-json-lint', ['< 2.0.0']
   spec.add_dependency 'puppet-lint-absolute_classname-check'
   spec.add_dependency 'puppet-lint-absolute_template_path'
   spec.add_dependency 'puppet-lint-trailing_newline-check'
