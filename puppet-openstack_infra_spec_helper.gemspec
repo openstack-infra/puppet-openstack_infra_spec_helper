@@ -19,7 +19,8 @@ Gem::Specification.new do |spec|
   # dependencies that are needed to run puppet-lint
   spec.add_dependency 'puppet', [ '~> 3.8']
   spec.add_dependency 'puppetlabs_spec_helper'
-  spec.add_dependency 'metadata-json-lint'
+  # metadata-job-lint 2.0 requires Ruby version ~> 2.0
+  spec.add_dependency 'metadata-json-lint', ['< 2.0.0']
   spec.add_dependency 'puppet-lint-absolute_classname-check'
   spec.add_dependency 'puppet-lint-absolute_template_path'
   spec.add_dependency 'puppet-lint-trailing_newline-check'
@@ -31,7 +32,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'puppet-lint-undef_in_function-check'
   spec.add_dependency 'json'
   spec.add_dependency 'netaddr'
-  spec.add_dependency 'webmock'
+  # webmock 3.0 requires Ruby version ~> 2.0
+  spec.add_dependency 'webmock', ['< 3.0.0']
   # google-api-client requires Ruby version ~> 2.0
   spec.add_dependency 'google-api-client', ['0.9.4']
   # latest json_pure requires Ruby version ~> 2.0
