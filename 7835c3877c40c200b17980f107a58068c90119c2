@@ -1,0 +1,9 @@
+Code-Review+2: Paul Belanger <pabelanger@redhat.com>
+Code-Review+2: James E. Blair <corvus@inaugust.com>
+Workflow+1: James E. Blair <corvus@inaugust.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 20 Sep 2017 21:18:27 +0000
+Reviewed-on: https://review.openstack.org/505792
+Project: openstack-infra/puppet-openstack_infra_spec_helper
+Branch: refs/heads/master
