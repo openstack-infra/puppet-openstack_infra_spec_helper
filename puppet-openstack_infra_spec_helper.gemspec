@@ -34,6 +34,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'netaddr'
   # webmock 3.0 requires Ruby version ~> 2.0
   spec.add_dependency 'webmock', ['< 3.0.0']
+  # signet requires Ruby version ~> 2.0
+  spec.add_dependency 'signet', ['< 0.8.0']
   # google-api-client requires Ruby version ~> 2.0
   spec.add_dependency 'google-api-client', ['0.9.4']
   # latest json_pure requires Ruby version ~> 2.0
