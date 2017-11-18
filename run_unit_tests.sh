@@ -32,7 +32,10 @@ cd openstack-infra/puppet-openstackci
 
 # Modify Gemfile to use local library and not the one on git
 # so we can actually test the current state of the gem.
-sed -i "s/.*git     => 'https:\/\/git.openstack.org\/openstack-infra\/puppet-openstack_infra_spec_helper.*/      :path => '..\/..',/" Gemfile
+# Note this is largely belts and suspenders for local test runs.
+# puppet-openstackci already attempts to determine if it is running
+# under Zuul and will do the correct thing in that case.
+sed -i "s/:git => 'https:\/\/git.openstack.org\/openstack-infra\/puppet-openstack_infra_spec_helper'}/:path => '..\/..'}/" Gemfile
 
 # Install dependencies
 gem install bundler --no-rdoc --no-ri --verbose

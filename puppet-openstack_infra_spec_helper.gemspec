@@ -16,6 +16,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  # This is a transitive dep that we define early so that the version
+  # that works for us is found.
+  # rake 12.3.0 requires Ruby version ~> 2.0
+  spec.add_dependency 'rake', ['< 12.3.0']
   # dependencies that are needed to run puppet-lint
   spec.add_dependency 'puppet', [ '~> 3.8']
   spec.add_dependency 'puppetlabs_spec_helper'
