@@ -50,6 +50,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'fast_gettext', ['< 1.2.0']
   # nokogiri 1.7.0+ requires ruby 2.1.0 which is not available on centos7
   spec.add_dependency 'nokogiri', ['< 1.7.0']
+  # fog-aws 2.0.0 requires ruby 2.0 which is not available on trusty
+  spec.add_dependency 'fog-aws', ['< 2.0.0']
   # fog-core 1.44.0 requires xmlrpc 0.3.0 which requires ruby 2.3.0 which is not available on centos7
   spec.add_dependency 'fog-core', ['!= 1.44.0']
 
