@@ -23,7 +23,7 @@ def install_system_config(host)
 
   # Install dependent modules via git or zuul
   on host, "rm -fr #{SYSTEM_CONFIG}"
-  if ENV['ZUUL_REF'] && ENV['ZUUL_BRANCH'] && ENV['ZUUL_URL']
+  if ENV['ZUUL_UUID']
     zuul_clone_cmd = '/usr/zuul-env/bin/zuul-cloner '
     zuul_clone_cmd += '--cache-dir /opt/git '
     zuul_clone_cmd += "git://git.openstack.org #{SYSTEM_CONFIG}"
