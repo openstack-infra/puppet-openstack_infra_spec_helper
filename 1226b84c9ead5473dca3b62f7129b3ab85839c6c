@@ -1,0 +1,9 @@
+Code-Review+2: Clark Boylan <cboylan@sapwetik.org>
+Code-Review+2: Jeremy Stanley <fungi@yuggoth.org>
+Workflow+1: Jeremy Stanley <fungi@yuggoth.org>
+Verified+2: Zuul
+Submitted-by: Zuul
+Submitted-at: Fri, 22 Jun 2018 16:14:06 +0000
+Reviewed-on: https://review.openstack.org/481943
+Project: openstack-infra/puppet-openstack_infra_spec_helper
+Branch: refs/heads/master
