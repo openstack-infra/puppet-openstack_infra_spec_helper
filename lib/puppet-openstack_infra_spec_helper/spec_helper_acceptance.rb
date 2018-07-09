@@ -34,7 +34,7 @@ def install_infra_modules(host, proj_root)
   # Install module and dependencies
   modname = JSON.parse(open('metadata.json').read)['name'].split('-')[1]
   module_install_cmd = "bash #{ENV['HOME']}/src/#{SYSTEM_CONFIG}/tools/install_modules_acceptance.sh"
-  on host, module_install_cmd, :environment => ENV.to_hash
+  on host, module_install_cmd, :environment => {'PUPPET_VERSION' => ENV['PUPPET_VERSION']}
   if ENV['PUPPET_VERSION'] == '4'
     on host, "rm -fr /etc/puppetlabs/code/modules/#{modname}"
   else
