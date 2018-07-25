@@ -54,6 +54,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'fog-aws', ['< 2.0.0']
   # fog-core 1.44.0 requires xmlrpc 0.3.0 which requires ruby 2.3.0 which is not available on centos7
   spec.add_dependency 'fog-core', ['!= 1.44.0']
+  # net-telnet requires Ruby version >= 2.3.0
+  spec.add_dependency 'net-telnet', ['< 0.2.0']
 
   # Beaker 3.0.0 fails to run in Puppet Openstack CI
   # LoadError: cannot load such file -- serverspec
