@@ -2,6 +2,12 @@ require 'beaker-rspec'
 
 SYSTEM_CONFIG='git.openstack.org/openstack-infra/system-config'
 
+def run_ansible(host)
+  on host, "virtualenv #{ENV['HOME']}/.ansiblevenv", :environment => ENV.to_hash
+  on host, "#{ENV['HOME']}/.ansiblevenv/bin/pip install ansible", :environment => ENV.to_hash
+  on host, "#{ENV['HOME']}/.ansiblevenv/bin/ansible-playbook #{ENV['HOME']}/src/#{SYSTEM_CONFIG}/playbooks/base.yaml", :environment => ENV.to_hash
+end
+
 def install_infra_puppet(host)
   install_system_config(host)
   on host, "bash -x #{ENV['HOME']}/src/#{SYSTEM_CONFIG}/install_puppet.sh", :environment => ENV.to_hash
@@ -66,6 +72,7 @@ end
 # Set up hosts, before running any tests
 hosts.each do |host|
   setup_host(host)
+  run_ansible(host)
   install_infra_puppet(host)
   install_infra_modules(host, proj_root)
 end
