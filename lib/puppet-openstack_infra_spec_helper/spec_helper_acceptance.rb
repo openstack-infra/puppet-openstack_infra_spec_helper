@@ -4,6 +4,8 @@ SYSTEM_CONFIG='git.openstack.org/openstack-infra/system-config'
 
 def run_ansible(host)
   base_playbook = "#{ENV['HOME']}/src/#{SYSTEM_CONFIG}/playbooks/base.yaml"
+  host.add_env_var(
+      'ANSIBLE_ROLES_PATH', "#{ENV['HOME']}/src/#{SYSTEM_CONFIG}/roles")
   on host, "echo 'localhost ansible_connection=local' > hosts"
   on host, "virtualenv .ansiblevenv"
   on host, ".ansiblevenv/bin/pip install ansible"
