@@ -16,13 +16,15 @@ end
 
 def setup_host(host)
   add_platform_foss_defaults(host, 'unix')
+  host.ssh_permit_user_environment()
+  host.add_env_var(
+      'ANSIBLE_ROLES_PATH', "#{ENV['HOME']}/src/#{SYSTEM_CONFIG}/roles")
   if ENV['PUPPET_VERSION'] == '4'
-    host.ssh_permit_user_environment()
     host.add_env_var('PATH', '/usr/local/sbin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin/:/opt/puppetlabs/bin')
-    # The SSH connection needs to be closed in order to refresh the SSH environment changes.
-    # It will reopen the next time a host action starts.
-    host.close
   end
+  # The SSH connection needs to be closed in order to refresh the SSH environment changes.
+  # It will reopen the next time a host action starts.
+  host.close
 end
 
 def install_system_config(host)
