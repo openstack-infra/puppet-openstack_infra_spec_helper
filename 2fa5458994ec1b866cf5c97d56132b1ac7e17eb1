@@ -1,0 +1,9 @@
+Code-Review+2: Colleen Murphy <colleen@gazlene.net>
+Code-Review+2: James E. Blair <corvus@inaugust.com>
+Workflow+1: James E. Blair <corvus@inaugust.com>
+Verified+2: Zuul
+Submitted-by: Zuul
+Submitted-at: Fri, 10 Aug 2018 14:47:27 +0000
+Reviewed-on: https://review.openstack.org/588326
+Project: openstack-infra/puppet-openstack_infra_spec_helper
+Branch: refs/heads/master
