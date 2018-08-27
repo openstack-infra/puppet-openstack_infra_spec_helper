@@ -4,7 +4,11 @@ SYSTEM_CONFIG='git.openstack.org/openstack-infra/system-config'
 
 def run_ansible(host)
   base_playbook = "#{ENV['HOME']}/src/#{SYSTEM_CONFIG}/playbooks/base.yaml"
-  on host, "echo 'localhost ansible_connection=local' > hosts"
+  # Use python3 by default
+  on host, "echo 'localhost ansible_connection=local ansible_python_interpreter=python3' > hosts"
+  # Override for trusty and centos 7
+  on host, "grep -i '14.04.*trusty' /etc/os-release && echo 'localhost ansible_connection=local ansible_python_interpreter=python' > hosts"
+  on host, "grep -i 'centos.*7' /etc/os-release && echo 'localhost ansible_connection=local ansible_python_interpreter=python' > hosts"
   on host, "virtualenv .ansiblevenv"
   on host, ".ansiblevenv/bin/pip install ansible"
   on host, ".ansiblevenv/bin/ansible-playbook -i hosts #{base_playbook}"
