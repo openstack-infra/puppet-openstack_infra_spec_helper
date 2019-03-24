@@ -24,9 +24,9 @@ gem build puppet-openstack_infra_spec_helper.gemspec
 # use puppet-openstackci to test the gem
 if [ -e /usr/zuul-env/bin/zuul-cloner ] ; then
   /usr/zuul-env/bin/zuul-cloner --cache-dir /opt/git \
-      git://git.openstack.org openstack-infra/puppet-openstackci
+      https://git.openstack.org openstack-infra/puppet-openstackci
 else
-  git clone git://git.openstack.org/openstack-infra/puppet-openstackci openstack-infra/puppet-openstackci
+  git clone https://git.openstack.org/openstack-infra/puppet-openstackci openstack-infra/puppet-openstackci
 fi
 cd openstack-infra/puppet-openstackci
 
