@@ -1,0 +1,9 @@
+Verified-1: Zuul
+Code-Review+2: Ian Wienand <iwienand@redhat.com>
+Verified+2: Ian Wienand <iwienand@redhat.com>
+Workflow+1: Ian Wienand <iwienand@redhat.com>
+Submitted-by: Ian Wienand <iwienand@redhat.com>
+Submitted-at: Wed, 10 Apr 2019 00:53:27 +0000
+Reviewed-on: https://review.openstack.org/646979
+Project: openstack-infra/puppet-openstack_infra_spec_helper
+Branch: refs/heads/master
